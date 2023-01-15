@@ -116,14 +116,14 @@ namespace Salary_management
         private void employeeBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
-            OpenChildForm(new Salary_management.View.Employees.ListEmployeeForm());
+            OpenChildForm(new Salary_management.View.Employees.ListEmployeeForm(this));
 
         }
 
         private void positionBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Salary_management.View.Positions.ListPositionForm());
+            OpenChildForm(new Salary_management.View.Positions.ListPositionForm(this));
 
 
         }

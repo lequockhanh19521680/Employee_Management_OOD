@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace Salary_management.View.Positions
 {
-    public partial class ListPositionForm : Form
+    public partial class ListPositionForm : BaseForm
     {
-        public ListPositionForm()
+
+        public ListPositionForm(Management mng)
         {
             InitializeComponent();
+            this.mng = mng;
+        }
+
+        private void ListPositionForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
