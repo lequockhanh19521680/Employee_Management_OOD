@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.positionsTabControl = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.positionTab = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -50,6 +53,20 @@
             this.searchText = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.rankTab = new System.Windows.Forms.TabPage();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.listRankTable = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.idRankTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameRankColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.milestoneTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coeffienceTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.addRankBtn = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.searchRankText = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.positionsTabControl.SuspendLayout();
             this.positionTab.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -58,6 +75,13 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.rankTab.SuspendLayout();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listRankTable)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // positionsTabControl
@@ -172,6 +196,7 @@
             this.listPositionsTable.ThemeStyle.RowsStyle.Height = 29;
             this.listPositionsTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.listPositionsTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.listPositionsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listPositionsTable_CellContentClick);
             // 
             // positionIDTable
             // 
@@ -257,6 +282,7 @@
             this.addBtn.Size = new System.Drawing.Size(94, 38);
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label1
             // 
@@ -312,6 +338,8 @@
             // 
             // rankTab
             // 
+            this.rankTab.Controls.Add(this.panel10);
+            this.rankTab.Controls.Add(this.panel6);
             this.rankTab.Location = new System.Drawing.Point(4, 44);
             this.rankTab.Name = "rankTab";
             this.rankTab.Padding = new System.Windows.Forms.Padding(3);
@@ -319,6 +347,203 @@
             this.rankTab.TabIndex = 1;
             this.rankTab.Text = "Rank";
             this.rankTab.UseVisualStyleBackColor = true;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.listRankTable);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 128);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.panel10.Size = new System.Drawing.Size(881, 339);
+            this.panel10.TabIndex = 3;
+            // 
+            // listRankTable
+            // 
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.listRankTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.listRankTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.listRankTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.listRankTable.ColumnHeadersHeight = 22;
+            this.listRankTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.listRankTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idRankTable,
+            this.nameRankColumn,
+            this.milestoneTable,
+            this.coeffienceTable});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.listRankTable.DefaultCellStyle = dataGridViewCellStyle6;
+            this.listRankTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listRankTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.listRankTable.Location = new System.Drawing.Point(0, 20);
+            this.listRankTable.Name = "listRankTable";
+            this.listRankTable.RowHeadersVisible = false;
+            this.listRankTable.RowHeadersWidth = 51;
+            this.listRankTable.RowTemplate.Height = 29;
+            this.listRankTable.Size = new System.Drawing.Size(881, 319);
+            this.listRankTable.TabIndex = 0;
+            this.listRankTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.listRankTable.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.listRankTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.listRankTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.listRankTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.listRankTable.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.listRankTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.listRankTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.listRankTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.listRankTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listRankTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.listRankTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.listRankTable.ThemeStyle.HeaderStyle.Height = 22;
+            this.listRankTable.ThemeStyle.ReadOnly = false;
+            this.listRankTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.listRankTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.listRankTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.listRankTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.listRankTable.ThemeStyle.RowsStyle.Height = 29;
+            this.listRankTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.listRankTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // idRankTable
+            // 
+            this.idRankTable.HeaderText = "ID";
+            this.idRankTable.MinimumWidth = 6;
+            this.idRankTable.Name = "idRankTable";
+            // 
+            // nameRankColumn
+            // 
+            this.nameRankColumn.HeaderText = "Name";
+            this.nameRankColumn.MinimumWidth = 6;
+            this.nameRankColumn.Name = "nameRankColumn";
+            // 
+            // milestoneTable
+            // 
+            this.milestoneTable.HeaderText = "Milestone";
+            this.milestoneTable.MinimumWidth = 6;
+            this.milestoneTable.Name = "milestoneTable";
+            this.milestoneTable.ReadOnly = true;
+            // 
+            // coeffienceTable
+            // 
+            this.coeffienceTable.HeaderText = "Coeffience";
+            this.coeffienceTable.MinimumWidth = 6;
+            this.coeffienceTable.Name = "coeffienceTable";
+            this.coeffienceTable.ReadOnly = true;
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(5);
+            this.panel6.Size = new System.Drawing.Size(881, 125);
+            this.panel6.TabIndex = 2;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(5, 5);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(5);
+            this.panel7.Size = new System.Drawing.Size(869, 58);
+            this.panel7.TabIndex = 3;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.addRankBtn);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(750, 5);
+            this.panel8.Name = "panel8";
+            this.panel8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
+            this.panel8.Size = new System.Drawing.Size(114, 48);
+            this.panel8.TabIndex = 3;
+            // 
+            // addRankBtn
+            // 
+            this.addRankBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addRankBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addRankBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addRankBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addRankBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addRankBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.addRankBtn.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addRankBtn.ForeColor = System.Drawing.Color.White;
+            this.addRankBtn.Location = new System.Drawing.Point(10, 0);
+            this.addRankBtn.Name = "addRankBtn";
+            this.addRankBtn.Size = new System.Drawing.Size(94, 38);
+            this.addRankBtn.TabIndex = 0;
+            this.addRankBtn.Text = "Add";
+            this.addRankBtn.Click += new System.EventHandler(this.addRankBtn_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(5, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(190, 28);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Rank Management";
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.searchRankText);
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel9.Location = new System.Drawing.Point(5, 84);
+            this.panel9.Name = "panel9";
+            this.panel9.Padding = new System.Windows.Forms.Padding(5);
+            this.panel9.Size = new System.Drawing.Size(869, 34);
+            this.panel9.TabIndex = 2;
+            // 
+            // searchRankText
+            // 
+            this.searchRankText.DefaultText = "";
+            this.searchRankText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.searchRankText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.searchRankText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchRankText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.searchRankText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchRankText.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchRankText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.searchRankText.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.searchRankText.Location = new System.Drawing.Point(61, 5);
+            this.searchRankText.Name = "searchRankText";
+            this.searchRankText.PasswordChar = '\0';
+            this.searchRankText.PlaceholderText = "";
+            this.searchRankText.SelectedText = "";
+            this.searchRankText.Size = new System.Drawing.Size(803, 24);
+            this.searchRankText.TabIndex = 1;
+            this.searchRankText.TextChanged += new System.EventHandler(this.searchRankText_TextChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Location = new System.Drawing.Point(5, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Search:";
             // 
             // ListPositionForm
             // 
@@ -339,6 +564,15 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.rankTab.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listRankTable)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -364,5 +598,19 @@
         private DataGridViewTextBoxColumn descriptionTable;
         private DataGridViewTextBoxColumn nameRankTable;
         private DataGridViewButtonColumn positionDetailBtnTable;
+        private Panel panel10;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView listRankTable;
+        private DataGridViewTextBoxColumn idRankTable;
+        private DataGridViewTextBoxColumn nameRankColumn;
+        private DataGridViewTextBoxColumn milestoneTable;
+        private DataGridViewTextBoxColumn coeffienceTable;
+        private Panel panel6;
+        private Panel panel7;
+        private Panel panel8;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton addRankBtn;
+        private Label label3;
+        private Panel panel9;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox searchRankText;
+        private Label label4;
     }
 }

@@ -1,4 +1,5 @@
-﻿using Salary_management.Controller.Infrastructure.Repositories;
+﻿using Salary_management.Controller.Infrastructure.Entities.Enums;
+using Salary_management.Controller.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,8 +25,24 @@ namespace Salary_management.View.Positions
         {
             LoadPosition();
             LoadRank();
-        }
+            AuthorizationButton(mng.Role);
 
+        }
+        private void AuthorizationButton(Role Role)
+        {
+            switch (Role)
+            {
+                case Role.Viewer:
+                    addBtn.Visible = false;
+                    addRankBtn.Visible = false;
+                    break;
+                case Role.Accountant:
+                    break;
+                case Role.Admin:
+                    break;
+                default: throw new ArgumentException();
+            }
+        }
         private void LoadPosition()
         {
             this.listPositionsTable.Rows.Clear();
@@ -39,7 +56,13 @@ namespace Salary_management.View.Positions
 
         private void LoadRank()
         {
-
+            this.listRankTable.Rows.Clear();
+            RepositoryRank repo = new RepositoryRank();
+            List<Model.Rank> list = repo.GetRank("");
+            foreach (Model.Rank rank in list)
+            {
+                listRankTable.Rows.Add(rank.Id, rank.Name, rank.Milestone, rank.Coefficient);
+            }
         }
 
         private void searchText_TextChanged(object sender, EventArgs e)
@@ -51,6 +74,40 @@ namespace Salary_management.View.Positions
             {
                 listPositionsTable.Rows.Add(position.Id, position.Name, position.BaseSalary, position.Description, position.Rank.Name);
             }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new View.Positions.AddNewPositionForm(this.mng));
+
+        }
+
+        private void listPositionsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            string id = listPositionsTable.Rows[listPositionsTable.CurrentRow.Index].Cells[0].Value.ToString();
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+        e.RowIndex >= 0)
+            {
+                mng.OpenChildForm(new View.Positions.PositionDetailForm(this.mng,id));
+            }
+        }
+
+        private void searchRankText_TextChanged(object sender, EventArgs e)
+        {
+            this.listRankTable.Rows.Clear();
+            RepositoryRank repo = new RepositoryRank();
+            List<Model.Rank> list = repo.GetRank(searchRankText.Text);
+            foreach (Model.Rank rank in list)
+            {
+                listRankTable.Rows.Add(rank.Id, rank.Name, rank.Milestone, rank.Coefficient);
+            }
+        }
+
+        private void addRankBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

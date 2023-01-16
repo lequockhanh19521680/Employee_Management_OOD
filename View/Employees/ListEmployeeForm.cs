@@ -1,4 +1,5 @@
-﻿using Salary_management.Controller.Infrastructure.Repositories;
+﻿using Salary_management.Controller.Infrastructure.Entities.Enums;
+using Salary_management.Controller.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,26 @@ namespace Salary_management.View.Employees
 
         private void ListEmployeeForm_Load(object sender, EventArgs e)
         {
+            LoadListEmployee();
+            AuthorizationButton(mng.Role);
+        }
+        private void AuthorizationButton(Role Role)
+        {
+            switch (Role)
+            {
+                case Role.Viewer:
+                    addBtn.Visible = false;
+                    break;
+                case Role.Accountant:
+                    break;
+                case Role.Admin:
+                    break;
+                default: throw new ArgumentException();
+            }
+        }
+
+        private void LoadListEmployee()
+        {
             this.listEmployeeTable.Rows.Clear();
             RepositoryEmployee repo = new RepositoryEmployee();
             List<Model.Employee> list = repo.GetEmployees("");
@@ -40,7 +61,6 @@ namespace Salary_management.View.Employees
                 listEmployeeTable.Rows.Add(employee.Id, employee.Name, employee.DateOfBirth, employee.IdentityCardNumber, employee.CoefficientAllowance);
             }
         }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
             mng.OpenChildForm(new Salary_management.View.Employees.AddNewEmployeeForm(this.mng));
