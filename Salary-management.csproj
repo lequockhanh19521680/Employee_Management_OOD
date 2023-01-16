@@ -50,5 +50,9 @@
 
   <ItemGroup>
     <Folder Include="Model\DetailInformation\" />
+    <Folder Include="View\Qualifications\" />
+    <Folder Include="View\Unions\" />
+    <Folder Include="View\Review\" />
+    <Folder Include="View\Units\" />
   </ItemGroup>
 </Project>

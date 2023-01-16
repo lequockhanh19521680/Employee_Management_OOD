@@ -40,5 +40,27 @@ namespace Salary_management.View.Employees
                 listEmployeeTable.Rows.Add(employee.Id, employee.Name, employee.DateOfBirth, employee.IdentityCardNumber, employee.CoefficientAllowance);
             }
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new Salary_management.View.Employees.AddNewEmployeeForm(this.mng));
+        }
+
+        private void listEmployeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            string id = (listEmployeeTable.Rows[listEmployeeTable.CurrentRow.Index].Cells[0].Value).ToString();
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+             e.RowIndex >= 0)
+            {
+                mng.OpenChildForm(new Salary_management.View.Employees.Detail.InformationDetailAboutEmployeeForm(this.mng, id));
+            }
+            
+        }
+
+        private void employeeTab_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

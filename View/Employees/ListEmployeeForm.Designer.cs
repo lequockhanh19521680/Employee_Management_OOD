@@ -102,6 +102,7 @@
             this.employeeTab.TabIndex = 0;
             this.employeeTab.Text = "Employee";
             this.employeeTab.UseVisualStyleBackColor = true;
+            this.employeeTab.Click += new System.EventHandler(this.employeeTab_Click);
             // 
             // panel5
             // 
@@ -173,6 +174,7 @@
             this.listEmployeeTable.ThemeStyle.RowsStyle.Height = 29;
             this.listEmployeeTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.listEmployeeTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.listEmployeeTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listEmployeeTable_CellContentClick);
             // 
             // employeeIDTable
             // 
@@ -258,6 +260,7 @@
             this.addBtn.Size = new System.Drawing.Size(94, 38);
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "Add";
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label1
             // 
