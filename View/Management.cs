@@ -123,7 +123,7 @@ namespace Salary_management
         private void positionBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm(new Salary_management.View.Positions.ListPositionForm(this));
+            OpenChildForm(new View.Positions.ListPositionForm(this));
 
 
         }
@@ -131,6 +131,7 @@ namespace Salary_management
         private void unitBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
+            OpenChildForm(new View.Units.UnitsForm(this));
 
         }
 

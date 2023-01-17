@@ -83,16 +83,6 @@ namespace Salary_management.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap istockphoto_871461336_612x612 {
-            get {
-                object obj = ResourceManager.GetObject("istockphoto-871461336-612x612", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo_uit {
             get {
                 object obj = ResourceManager.GetObject("logo-uit", resourceCulture);
