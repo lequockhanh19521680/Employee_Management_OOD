@@ -18,6 +18,7 @@ namespace Salary_management.View.Units
         public UnitDetailForm(Management mng, string idUnit)
         {
             InitializeComponent();
+            this.mng = mng;
             this.idUnit = idUnit;
         }
 
