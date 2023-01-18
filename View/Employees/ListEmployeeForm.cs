@@ -18,6 +18,7 @@ namespace Salary_management.View.Employees
         {
             InitializeComponent();
             this.mng = mng;
+
         }
 
         private void searchText_TextChanged(object sender, EventArgs e)

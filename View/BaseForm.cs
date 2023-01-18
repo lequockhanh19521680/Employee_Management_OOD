@@ -14,5 +14,7 @@ namespace Salary_management.View
     {
         protected Management mng;
 
+
+     
     }
 }

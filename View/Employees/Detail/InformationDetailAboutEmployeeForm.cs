@@ -21,8 +21,9 @@ namespace Salary_management.View.Employees.Detail
         public InformationDetailAboutEmployeeForm(Management mng, string id)
         {
             InitializeComponent();
-            this.mng = mng;
             this.idEmployee = id;
+            this.mng = mng;
+
         }
         //METHODS
         private void InformationDetailAboutEmployeeForm_Load(object sender, EventArgs e)

@@ -19,8 +19,9 @@ namespace Salary_management.View.Positions
         public PositionDetailForm(Management mng, string id)
         {
             InitializeComponent();
-            this.mng = mng;
             this.idPosition = id;
+            this.mng = mng;
+
         }
 
         private void PositionDetailForm_Load(object sender, EventArgs e)

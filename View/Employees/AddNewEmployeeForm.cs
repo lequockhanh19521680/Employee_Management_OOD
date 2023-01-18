@@ -19,6 +19,7 @@ namespace Salary_management.View.Employees
         {
             InitializeComponent();
             this.mng = mng;
+
         }
 
         private void AddNewEmployeeForm_Load(object sender, EventArgs e)

@@ -16,7 +16,6 @@ namespace Salary_management.View.Units
         public UnitsForm(Management mng)
         {
             InitializeComponent();
-            this.mng = mng;
         }
 
         private void UnitsForm_Load(object sender, EventArgs e)

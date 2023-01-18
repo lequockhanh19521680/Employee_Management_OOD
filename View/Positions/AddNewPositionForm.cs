@@ -18,6 +18,7 @@ namespace Salary_management.View.Positions
         {
             InitializeComponent();
             this.mng = mng;
+
         }
 
         private void AddNewPositionForm_Load(object sender, EventArgs e)

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,17 +55,27 @@
             this.nameText = new System.Windows.Forms.TextBox();
             this.unionTab = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.backUnitBtn = new System.Windows.Forms.Button();
             this.employeeInUnitTab = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addEmployeeInUnitBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.backBtn2 = new System.Windows.Forms.Button();
             this.unitDetailTable = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameEmployeeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deleteBtnColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.filterGroupBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.unionComboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.filterEmployeeInUnionTable = new Siticone.Desktop.UI.WinForms.SiticoneDataGridView();
+            this.idEmployeeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameEmployeeColumnInUnion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameUnionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDateInUnion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitDetailTabControls.SuspendLayout();
             this.informationTab.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -77,6 +90,9 @@
             this.employeeInUnitTab.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.unitDetailTable)).BeginInit();
+            this.filterGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterEmployeeInUnionTable)).BeginInit();
             this.SuspendLayout();
             // 
             // unitDetailTabControls
@@ -165,6 +181,7 @@
             this.backBtn.TabIndex = 0;
             this.backBtn.Text = "< Back";
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // InformationGroupBox
             // 
@@ -295,6 +312,8 @@
             // 
             // unionTab
             // 
+            this.unionTab.Controls.Add(this.groupBox1);
+            this.unionTab.Controls.Add(this.filterGroupBox);
             this.unionTab.Controls.Add(this.panel5);
             this.unionTab.Location = new System.Drawing.Point(4, 44);
             this.unionTab.Name = "unionTab";
@@ -306,7 +325,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.button4);
+            this.panel5.Controls.Add(this.backUnitBtn);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(3, 353);
             this.panel5.Name = "panel5";
@@ -314,17 +333,18 @@
             this.panel5.Size = new System.Drawing.Size(786, 46);
             this.panel5.TabIndex = 14;
             // 
-            // button4
+            // backUnitBtn
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.button4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button4.Location = new System.Drawing.Point(0, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(94, 41);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "< Back";
-            this.button4.UseVisualStyleBackColor = false;
+            this.backUnitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.backUnitBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backUnitBtn.ForeColor = System.Drawing.Color.Gainsboro;
+            this.backUnitBtn.Location = new System.Drawing.Point(0, 5);
+            this.backUnitBtn.Name = "backUnitBtn";
+            this.backUnitBtn.Size = new System.Drawing.Size(94, 41);
+            this.backUnitBtn.TabIndex = 0;
+            this.backUnitBtn.Text = "< Back";
+            this.backUnitBtn.UseVisualStyleBackColor = false;
+            this.backUnitBtn.Click += new System.EventHandler(this.backUnitBtn_Click);
             // 
             // employeeInUnitTab
             // 
@@ -341,7 +361,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.addEmployeeInUnitBtn);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.backBtn2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 353);
             this.panel2.Name = "panel2";
@@ -360,31 +380,33 @@
             this.addEmployeeInUnitBtn.TabIndex = 1;
             this.addEmployeeInUnitBtn.Text = "+ Add";
             this.addEmployeeInUnitBtn.UseVisualStyleBackColor = false;
+            this.addEmployeeInUnitBtn.Click += new System.EventHandler(this.addEmployeeInUnitBtn_Click);
             // 
-            // button2
+            // backBtn2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Location = new System.Drawing.Point(0, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 41);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "< Back";
-            this.button2.UseVisualStyleBackColor = false;
+            this.backBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.backBtn2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.backBtn2.Location = new System.Drawing.Point(0, 5);
+            this.backBtn2.Name = "backBtn2";
+            this.backBtn2.Size = new System.Drawing.Size(94, 41);
+            this.backBtn2.TabIndex = 0;
+            this.backBtn2.Text = "< Back";
+            this.backBtn2.UseVisualStyleBackColor = false;
+            this.backBtn2.Click += new System.EventHandler(this.backBtn2_Click);
             // 
             // unitDetailTable
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.unitDetailTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.unitDetailTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.unitDetailTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.unitDetailTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.unitDetailTable.ColumnHeadersHeight = 22;
             this.unitDetailTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.unitDetailTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -393,14 +415,14 @@
             this.startDateColumn,
             this.endDateColumn,
             this.deleteBtnColumn});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.unitDetailTable.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.unitDetailTable.DefaultCellStyle = dataGridViewCellStyle6;
             this.unitDetailTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.unitDetailTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.unitDetailTable.Location = new System.Drawing.Point(3, 3);
@@ -473,6 +495,144 @@
             this.deleteBtnColumn.Name = "deleteBtnColumn";
             this.deleteBtnColumn.ReadOnly = true;
             // 
+            // filterGroupBox
+            // 
+            this.filterGroupBox.Controls.Add(this.unionComboBox);
+            this.filterGroupBox.Controls.Add(this.panel4);
+            this.filterGroupBox.Controls.Add(this.label1);
+            this.filterGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.filterGroupBox.Name = "filterGroupBox";
+            this.filterGroupBox.Padding = new System.Windows.Forms.Padding(20);
+            this.filterGroupBox.Size = new System.Drawing.Size(786, 91);
+            this.filterGroupBox.TabIndex = 15;
+            this.filterGroupBox.TabStop = false;
+            this.filterGroupBox.Text = "Filter";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(20, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Select Union:";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(115, 40);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(40, 31);
+            this.panel4.TabIndex = 1;
+            // 
+            // unionComboBox
+            // 
+            this.unionComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.unionComboBox.FormattingEnabled = true;
+            this.unionComboBox.Location = new System.Drawing.Point(155, 40);
+            this.unionComboBox.Name = "unionComboBox";
+            this.unionComboBox.Size = new System.Drawing.Size(611, 28);
+            this.unionComboBox.TabIndex = 2;
+            this.unionComboBox.SelectedIndexChanged += new System.EventHandler(this.unionComboBox_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.filterEmployeeInUnionTable);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 94);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(20);
+            this.groupBox1.Size = new System.Drawing.Size(786, 259);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "List Employee In Union";
+            // 
+            // filterEmployeeInUnionTable
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.filterEmployeeInUnionTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.filterEmployeeInUnionTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.filterEmployeeInUnionTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.filterEmployeeInUnionTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idEmployeeColumn,
+            this.nameEmployeeColumnInUnion,
+            this.nameUnionColumn,
+            this.startDateInUnion});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.filterEmployeeInUnionTable.DefaultCellStyle = dataGridViewCellStyle3;
+            this.filterEmployeeInUnionTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filterEmployeeInUnionTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.filterEmployeeInUnionTable.Location = new System.Drawing.Point(20, 40);
+            this.filterEmployeeInUnionTable.Name = "filterEmployeeInUnionTable";
+            this.filterEmployeeInUnionTable.RowHeadersVisible = false;
+            this.filterEmployeeInUnionTable.RowHeadersWidth = 51;
+            this.filterEmployeeInUnionTable.RowTemplate.Height = 29;
+            this.filterEmployeeInUnionTable.Size = new System.Drawing.Size(746, 199);
+            this.filterEmployeeInUnionTable.TabIndex = 0;
+            this.filterEmployeeInUnionTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.filterEmployeeInUnionTable.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.filterEmployeeInUnionTable.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.filterEmployeeInUnionTable.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.filterEmployeeInUnionTable.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.filterEmployeeInUnionTable.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.filterEmployeeInUnionTable.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.filterEmployeeInUnionTable.ThemeStyle.HeaderStyle.Height = 22;
+            this.filterEmployeeInUnionTable.ThemeStyle.ReadOnly = false;
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.Height = 29;
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.filterEmployeeInUnionTable.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // idEmployeeColumn
+            // 
+            this.idEmployeeColumn.HeaderText = "ID";
+            this.idEmployeeColumn.MinimumWidth = 6;
+            this.idEmployeeColumn.Name = "idEmployeeColumn";
+            // 
+            // nameEmployeeColumnInUnion
+            // 
+            this.nameEmployeeColumnInUnion.HeaderText = "Name";
+            this.nameEmployeeColumnInUnion.MinimumWidth = 6;
+            this.nameEmployeeColumnInUnion.Name = "nameEmployeeColumnInUnion";
+            this.nameEmployeeColumnInUnion.ReadOnly = true;
+            // 
+            // nameUnionColumn
+            // 
+            this.nameUnionColumn.HeaderText = "Name Union";
+            this.nameUnionColumn.MinimumWidth = 6;
+            this.nameUnionColumn.Name = "nameUnionColumn";
+            this.nameUnionColumn.ReadOnly = true;
+            // 
+            // startDateInUnion
+            // 
+            this.startDateInUnion.HeaderText = "Start Date";
+            this.startDateInUnion.MinimumWidth = 6;
+            this.startDateInUnion.Name = "startDateInUnion";
+            this.startDateInUnion.ReadOnly = true;
+            // 
             // UnitDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -499,6 +659,10 @@
             this.employeeInUnitTab.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.unitDetailTable)).EndInit();
+            this.filterGroupBox.ResumeLayout(false);
+            this.filterGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.filterEmployeeInUnionTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -526,16 +690,26 @@
         private Button backBtn;
         private DateTimePicker dateFoundedDatePicker;
         private Panel panel5;
-        private Button button4;
+        private Button backUnitBtn;
         private TabPage employeeInUnitTab;
         private Panel panel2;
         private Button addEmployeeInUnitBtn;
-        private Button button2;
+        private Button backBtn2;
         private Siticone.Desktop.UI.WinForms.SiticoneDataGridView unitDetailTable;
         private DataGridViewTextBoxColumn idColumn;
         private DataGridViewTextBoxColumn nameEmployeeColumn;
         private DataGridViewTextBoxColumn startDateColumn;
         private DataGridViewTextBoxColumn endDateColumn;
         private DataGridViewButtonColumn deleteBtnColumn;
+        private GroupBox groupBox1;
+        private Siticone.Desktop.UI.WinForms.SiticoneDataGridView filterEmployeeInUnionTable;
+        private DataGridViewTextBoxColumn idEmployeeColumn;
+        private DataGridViewTextBoxColumn nameEmployeeColumnInUnion;
+        private DataGridViewTextBoxColumn nameUnionColumn;
+        private DataGridViewTextBoxColumn startDateInUnion;
+        private GroupBox filterGroupBox;
+        private ComboBox unionComboBox;
+        private Panel panel4;
+        private Label label1;
     }
 }

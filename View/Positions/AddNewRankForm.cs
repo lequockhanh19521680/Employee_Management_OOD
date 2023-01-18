@@ -18,6 +18,7 @@ namespace Salary_management.View.Positions
         {
             InitializeComponent();
             this.mng = mng;
+
         }
 
         private void backBtn_Click(object sender, EventArgs e)

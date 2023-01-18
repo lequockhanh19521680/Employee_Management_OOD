@@ -31,20 +31,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.addEmployeeInUnitBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.EndDatePanel = new System.Windows.Forms.Panel();
-            this.EndDateInput = new System.Windows.Forms.DateTimePicker();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.endDatePanel = new System.Windows.Forms.Panel();
+            this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.WorkRecentlyCheckBox = new System.Windows.Forms.CheckBox();
+            this.workRecentlyCheckBox = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.StartDateInput = new System.Windows.Forms.DateTimePicker();
+            this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.EmployeeComboBox = new System.Windows.Forms.ComboBox();
+            this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.EndDatePanel.SuspendLayout();
+            this.endDatePanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,11 +52,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.EndDatePanel);
-            this.panel1.Controls.Add(this.WorkRecentlyCheckBox);
+            this.panel1.Controls.Add(this.endDatePanel);
+            this.panel1.Controls.Add(this.workRecentlyCheckBox);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
@@ -65,7 +65,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.addEmployeeInUnitBtn);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.backBtn);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 404);
             this.panel4.Name = "panel4";
@@ -84,37 +84,40 @@
             this.addEmployeeInUnitBtn.TabIndex = 1;
             this.addEmployeeInUnitBtn.Text = "+ Add";
             this.addEmployeeInUnitBtn.UseVisualStyleBackColor = false;
+            this.addEmployeeInUnitBtn.Click += new System.EventHandler(this.addEmployeeInUnitBtn_Click);
             // 
-            // button2
+            // backBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.Location = new System.Drawing.Point(0, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 41);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "< Back";
-            this.button2.UseVisualStyleBackColor = false;
+            this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.ForeColor = System.Drawing.Color.Gainsboro;
+            this.backBtn.Location = new System.Drawing.Point(0, 5);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(94, 41);
+            this.backBtn.TabIndex = 0;
+            this.backBtn.Text = "< Back";
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // EndDatePanel
+            // endDatePanel
             // 
-            this.EndDatePanel.Controls.Add(this.EndDateInput);
-            this.EndDatePanel.Controls.Add(this.label3);
-            this.EndDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EndDatePanel.Location = new System.Drawing.Point(0, 194);
-            this.EndDatePanel.Name = "EndDatePanel";
-            this.EndDatePanel.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.EndDatePanel.Size = new System.Drawing.Size(800, 69);
-            this.EndDatePanel.TabIndex = 7;
+            this.endDatePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.endDatePanel.Controls.Add(this.endDateTimePicker);
+            this.endDatePanel.Controls.Add(this.label3);
+            this.endDatePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endDatePanel.Location = new System.Drawing.Point(0, 194);
+            this.endDatePanel.Name = "endDatePanel";
+            this.endDatePanel.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.endDatePanel.Size = new System.Drawing.Size(800, 69);
+            this.endDatePanel.TabIndex = 7;
             // 
-            // EndDateInput
+            // endDateTimePicker
             // 
-            this.EndDateInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EndDateInput.Location = new System.Drawing.Point(85, 20);
-            this.EndDateInput.Name = "EndDateInput";
-            this.EndDateInput.Size = new System.Drawing.Size(705, 27);
-            this.EndDateInput.TabIndex = 1;
+            this.endDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.endDateTimePicker.Location = new System.Drawing.Point(85, 20);
+            this.endDateTimePicker.Name = "endDateTimePicker";
+            this.endDateTimePicker.Size = new System.Drawing.Size(703, 27);
+            this.endDateTimePicker.TabIndex = 1;
             // 
             // label3
             // 
@@ -126,21 +129,23 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "End date: ";
             // 
-            // WorkRecentlyCheckBox
+            // workRecentlyCheckBox
             // 
-            this.WorkRecentlyCheckBox.AutoSize = true;
-            this.WorkRecentlyCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.WorkRecentlyCheckBox.Location = new System.Drawing.Point(0, 150);
-            this.WorkRecentlyCheckBox.Name = "WorkRecentlyCheckBox";
-            this.WorkRecentlyCheckBox.Padding = new System.Windows.Forms.Padding(10);
-            this.WorkRecentlyCheckBox.Size = new System.Drawing.Size(800, 44);
-            this.WorkRecentlyCheckBox.TabIndex = 3;
-            this.WorkRecentlyCheckBox.Text = "Work recently";
-            this.WorkRecentlyCheckBox.UseVisualStyleBackColor = true;
+            this.workRecentlyCheckBox.AutoSize = true;
+            this.workRecentlyCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.workRecentlyCheckBox.Location = new System.Drawing.Point(0, 150);
+            this.workRecentlyCheckBox.Name = "workRecentlyCheckBox";
+            this.workRecentlyCheckBox.Padding = new System.Windows.Forms.Padding(10);
+            this.workRecentlyCheckBox.Size = new System.Drawing.Size(800, 44);
+            this.workRecentlyCheckBox.TabIndex = 3;
+            this.workRecentlyCheckBox.Text = "Work recently";
+            this.workRecentlyCheckBox.UseVisualStyleBackColor = true;
+            this.workRecentlyCheckBox.CheckedChanged += new System.EventHandler(this.workRecentlyCheckBox_CheckedChanged);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.StartDateInput);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.startDateTimePicker);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 75);
@@ -149,13 +154,13 @@
             this.panel3.Size = new System.Drawing.Size(800, 75);
             this.panel3.TabIndex = 2;
             // 
-            // StartDateInput
+            // startDateTimePicker
             // 
-            this.StartDateInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StartDateInput.Location = new System.Drawing.Point(91, 20);
-            this.StartDateInput.Name = "StartDateInput";
-            this.StartDateInput.Size = new System.Drawing.Size(699, 27);
-            this.StartDateInput.TabIndex = 1;
+            this.startDateTimePicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startDateTimePicker.Location = new System.Drawing.Point(91, 20);
+            this.startDateTimePicker.Name = "startDateTimePicker";
+            this.startDateTimePicker.Size = new System.Drawing.Size(697, 27);
+            this.startDateTimePicker.TabIndex = 1;
             // 
             // label2
             // 
@@ -169,7 +174,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.EmployeeComboBox);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.employeeComboBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -178,14 +184,14 @@
             this.panel2.Size = new System.Drawing.Size(800, 75);
             this.panel2.TabIndex = 1;
             // 
-            // EmployeeComboBox
+            // employeeComboBox
             // 
-            this.EmployeeComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EmployeeComboBox.FormattingEnabled = true;
-            this.EmployeeComboBox.Location = new System.Drawing.Point(145, 20);
-            this.EmployeeComboBox.Name = "EmployeeComboBox";
-            this.EmployeeComboBox.Size = new System.Drawing.Size(645, 28);
-            this.EmployeeComboBox.TabIndex = 1;
+            this.employeeComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeComboBox.FormattingEnabled = true;
+            this.employeeComboBox.Location = new System.Drawing.Point(145, 20);
+            this.employeeComboBox.Name = "employeeComboBox";
+            this.employeeComboBox.Size = new System.Drawing.Size(643, 28);
+            this.employeeComboBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -205,11 +211,12 @@
             this.Controls.Add(this.panel1);
             this.Name = "AddEmployeeInUnitForm";
             this.Text = "AddEmployeeInUnitForm";
+            this.Load += new System.EventHandler(this.AddEmployeeInUnitForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.EndDatePanel.ResumeLayout(false);
-            this.EndDatePanel.PerformLayout();
+            this.endDatePanel.ResumeLayout(false);
+            this.endDatePanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -221,18 +228,18 @@
         #endregion
 
         private Panel panel1;
-        private Panel EndDatePanel;
-        private DateTimePicker EndDateInput;
+        private Panel endDatePanel;
+        private DateTimePicker endDateTimePicker;
         private Label label3;
-        private CheckBox WorkRecentlyCheckBox;
+        private CheckBox workRecentlyCheckBox;
         private Panel panel3;
-        private DateTimePicker StartDateInput;
+        private DateTimePicker startDateTimePicker;
         private Label label2;
         private Panel panel2;
-        private ComboBox EmployeeComboBox;
+        private ComboBox employeeComboBox;
         private Label label1;
         private Panel panel4;
         private Button addEmployeeInUnitBtn;
-        private Button button2;
+        private Button backBtn;
     }
 }

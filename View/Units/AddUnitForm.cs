@@ -17,7 +17,6 @@ namespace Salary_management.View.Units
         public AddUnitForm(Management mng)
         {
             InitializeComponent();
-            this.mng = mng;
         }
 
         private void addBtn_Click(object sender, EventArgs e)

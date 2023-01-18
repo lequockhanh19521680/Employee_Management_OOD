@@ -138,6 +138,8 @@ namespace Salary_management
         private void reviewBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new View.Employees_Review.ReviewForm(this));
+
 
         }
 

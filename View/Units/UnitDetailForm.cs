@@ -19,12 +19,23 @@ namespace Salary_management.View.Units
         {
             InitializeComponent();
             this.idUnit = idUnit;
-            this.mng = mng;
         }
 
         private void UnitDetailForm_Load(object sender, EventArgs e)
         {
             LoadUnitDetail();
+            LoadUnionInComboBox();
+        }
+
+        private void LoadUnionInComboBox()
+        {
+            var repoUnion = new RepositoryUnion();
+            var listUnion = repoUnion.GetUnions("");
+            foreach (var union in listUnion)
+            {
+                unionComboBox.Items.Add(union.Id + ":" + union.Name);
+
+            }
         }
 
         private void LoadUnitDetail()
@@ -45,6 +56,50 @@ namespace Salary_management.View.Units
 
         }
 
+        private void addEmployeeInUnitBtn_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new AddEmployeeInUnitForm(this.mng, idUnit));
+        }
 
+        private void backUnitBtn_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new UnitsForm(this.mng));
+
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new UnitsForm(this.mng));
+
+        }
+
+        private void backBtn2_Click(object sender, EventArgs e)
+        {
+            mng.OpenChildForm(new UnitsForm(this.mng));
+
+        }
+
+        private void unionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectText = unionComboBox.Text;
+            var repoUnion = new RepositoryEmployee();
+            var idUnion = selectText.Trim().Split(":")[0];
+            var result = repoUnion.GetEmployeeOfUnitAndUnion(this.idUnit, idUnion);
+
+            if (result.Success)
+            {
+                var getListInformation = result.Payload;
+                foreach (var item in getListInformation)
+                {
+                    filterEmployeeInUnionTable.Rows.Add(item.EmployeeId, item.EmployeeName, item.UnionName, item.UnionStartDate);
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("Union unit id:" + idUnion + " " + idUnit + "Message :" + result.ErrorMessage);
+            }
+        }
     }
+    
 }
