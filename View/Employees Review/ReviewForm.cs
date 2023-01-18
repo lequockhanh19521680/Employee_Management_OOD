@@ -48,7 +48,7 @@ namespace Salary_management.View.Employees_Review
 
         private void addRewardBtn_Click(object sender, EventArgs e)
         {
-
+            mng.OpenChildForm(new AddReviewForm(this.mng, true));
         }
 
 
@@ -76,6 +76,7 @@ namespace Salary_management.View.Employees_Review
 
         private void addDisciplineBtn_Click(object sender, EventArgs e)
         {
+            mng.OpenChildForm(new AddReviewForm(this.mng, false));
 
         }
     }

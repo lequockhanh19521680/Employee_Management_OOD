@@ -146,6 +146,8 @@ namespace Salary_management
         private void unionBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
+            OpenChildForm(new View.Unions.UnionsForm(this));
+
 
         }
 
