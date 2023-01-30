@@ -23,7 +23,12 @@ namespace Salary_management.View.Positions
 
         private void AddNewPositionForm_Load(object sender, EventArgs e)
         {
-
+            RepositoryRank repo = new RepositoryRank();
+            List<Model.Rank> list = repo.GetRank("");
+            foreach (Model.Rank rank in list)
+            {
+                rankComboBox.Items.Add(rank.Id + ":" + rank.Name);
+            }
         }
 
         private void addBtn_Click(object sender, EventArgs e)

@@ -37,9 +37,10 @@
             this.employeeBtn = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panelMain = new Siticone.Desktop.UI.WinForms.SiticonePanel();
-            this.iconCurrentChildForm = new FontAwesome.Sharp.IconButton();
             this.lblTitleChildForm = new System.Windows.Forms.Label();
+            this.iconCurrentChildForm = new FontAwesome.Sharp.IconButton();
+            this.panelMain = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.userButton = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.Controls.Add(this.userButton);
             this.panelMenu.Controls.Add(this.qualificationBtn);
             this.panelMenu.Controls.Add(this.unionBtn);
             this.panelMenu.Controls.Add(this.reviewBtn);
@@ -214,15 +216,15 @@
             this.panel1.Size = new System.Drawing.Size(975, 60);
             this.panel1.TabIndex = 4;
             // 
-            // panelMain
+            // lblTitleChildForm
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(78)))));
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(248, 70);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Padding = new System.Windows.Forms.Padding(20);
-            this.panelMain.Size = new System.Drawing.Size(975, 562);
-            this.panelMain.TabIndex = 5;
+            this.lblTitleChildForm.AutoSize = true;
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitleChildForm.Location = new System.Drawing.Point(66, 20);
+            this.lblTitleChildForm.Name = "lblTitleChildForm";
+            this.lblTitleChildForm.Size = new System.Drawing.Size(50, 20);
+            this.lblTitleChildForm.TabIndex = 2;
+            this.lblTitleChildForm.Text = "Home";
             // 
             // iconCurrentChildForm
             // 
@@ -240,15 +242,37 @@
             this.iconCurrentChildForm.TabIndex = 0;
             this.iconCurrentChildForm.UseVisualStyleBackColor = false;
             // 
-            // lblTitleChildForm
+            // panelMain
             // 
-            this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblTitleChildForm.Location = new System.Drawing.Point(66, 20);
-            this.lblTitleChildForm.Name = "lblTitleChildForm";
-            this.lblTitleChildForm.Size = new System.Drawing.Size(50, 20);
-            this.lblTitleChildForm.TabIndex = 2;
-            this.lblTitleChildForm.Text = "Home";
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(78)))));
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(248, 70);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Padding = new System.Windows.Forms.Padding(20);
+            this.panelMain.Size = new System.Drawing.Size(975, 562);
+            this.panelMain.TabIndex = 5;
+            // 
+            // userButton
+            // 
+            this.userButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.userButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.userButton.FlatAppearance.BorderSize = 0;
+            this.userButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.userButton.IconChar = FontAwesome.Sharp.IconChar.CircleUser;
+            this.userButton.IconColor = System.Drawing.Color.Gainsboro;
+            this.userButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userButton.Location = new System.Drawing.Point(0, 464);
+            this.userButton.Name = "userButton";
+            this.userButton.Padding = new System.Windows.Forms.Padding(4);
+            this.userButton.Size = new System.Drawing.Size(238, 62);
+            this.userButton.TabIndex = 7;
+            this.userButton.Text = "Users";
+            this.userButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.userButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.userButton.UseVisualStyleBackColor = false;
+            this.userButton.Click += new System.EventHandler(this.userButton_Click);
             // 
             // Management
             // 
@@ -283,5 +307,6 @@
         private Siticone.Desktop.UI.WinForms.SiticonePanel panelMain;
         private Label lblTitleChildForm;
         private FontAwesome.Sharp.IconButton iconCurrentChildForm;
+        private FontAwesome.Sharp.IconButton userButton;
     }
 }

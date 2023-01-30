@@ -11,7 +11,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="View\Positions\PositionDetailForm.cs~RF57ce8dc.TMP" />
+    <Compile Remove="View\Forms\Reward\**" />
+    <EmbeddedResource Remove="View\Forms\Reward\**" />
+    <None Remove="View\Forms\Reward\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="View\LoginForm.resx~RF14f3d3d4.TMP" />
   </ItemGroup>
 
   <ItemGroup>

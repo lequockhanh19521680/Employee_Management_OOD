@@ -53,8 +53,9 @@ namespace Salary_management.Migrations
                     b.HasKey("Id")
                         .HasName("pk_auths");
 
-                    b.HasAlternateKey("Username")
-                        .HasName("ak_auths_username");
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasDatabaseName("ix_auths_username");
 
                     b.ToTable("auths", (string)null);
 
@@ -583,6 +584,68 @@ namespace Salary_management.Migrations
                         .HasDatabaseName("ix_unit_histories_unit_id");
 
                     b.ToTable("unit_histories", (string)null);
+                });
+
+            modelBuilder.Entity("Salary_management.Model.EmployeeSalary", b =>
+                {
+                    b.Property<int>("BaseSalary")
+                        .HasColumnType("integer")
+                        .HasColumnName("base_salary");
+
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("date")
+                        .HasColumnName("date");
+
+                    b.Property<double>("EmployeeAllowanceCoefficient")
+                        .HasColumnType("double precision")
+                        .HasColumnName("employee_allowance_coefficient");
+
+                    b.Property<string>("EmployeeId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("employee_id");
+
+                    b.Property<string>("EmployeeName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("employee_name");
+
+                    b.Property<double>("RankCoefficient")
+                        .HasColumnType("double precision")
+                        .HasColumnName("rank_coefficient");
+
+                    b.Property<int>("RankLevel")
+                        .HasColumnType("integer")
+                        .HasColumnName("rank_level");
+
+                    b.Property<string>("RankName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("rank_name");
+
+                    b.Property<long>("Salary")
+                        .HasColumnType("bigint")
+                        .HasColumnName("salary");
+
+                    b.Property<double>("TotalCoefficient")
+                        .HasColumnType("double precision")
+                        .HasColumnName("total_coefficient");
+
+                    b.Property<int>("TotalQualificationAllowance")
+                        .HasColumnType("integer")
+                        .HasColumnName("total_qualification_allowance");
+
+                    b.Property<string>("UnitId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("unit_id");
+
+                    b.Property<string>("UnitName")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("unit_name");
+
+                    b.ToTable("employee_salaries", (string)null);
                 });
 
             modelBuilder.Entity("Salary_management.Infrastructure.Entities.EmployeeQualification", b =>

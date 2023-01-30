@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,15 +38,34 @@ namespace Salary_management
             public static Color color4 = Color.FromArgb(95, 77, 221);
             public static Color color5 = Color.FromArgb(249, 88, 155);
             public static Color color6 = Color.FromArgb(24, 161, 251);
+            public static Color color7 = Color.FromArgb(255, 204, 0);
+
         }
         //Methods
 
         private void Management_Load(object sender, EventArgs e)
         {
             Reset();
+            AuthorizationButton(this.Role);
             OpenChildForm(new Salary_management.View.Home.HomeForm());
         }
 
+
+        private void AuthorizationButton(Role role)
+        {
+            switch (role)
+            {
+                case Role.Admin:
+                    break;
+                case Role.Accountant:
+                    userButton.Visible = false;
+                    break;
+                case Role.Viewer:
+                    userButton.Visible = false;
+                    break;
+                default: return;
+            }
+        }
         private void Reset()
         {
             DisableButton();
@@ -132,34 +152,35 @@ namespace Salary_management
         {
             ActivateButton(sender, RGBColors.color3);
             OpenChildForm(new View.Units.UnitsForm(this));
-
         }
 
         private void reviewBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
             OpenChildForm(new View.Employees_Review.ReviewForm(this));
-
-
         }
 
         private void unionBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color5);
             OpenChildForm(new View.Unions.UnionsForm(this));
-
-
         }
 
         private void qualificationBtn_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-
+            OpenChildForm(new View.Qualifications.QualificationsForm(this));
         }
 
         private void btnHome_Click(object sender, EventArgs e)
         {
             Reset();
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.color7);
+            OpenChildForm(new View.Users.UsersForm(this));
         }
     }
 }
