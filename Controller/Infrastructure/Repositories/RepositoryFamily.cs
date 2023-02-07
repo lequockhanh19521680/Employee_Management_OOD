@@ -26,7 +26,8 @@ namespace Salary_management.Controller.Infrastructure.Repositories
 			Family family = MapToEntity(inputFamily);
 			Context.Families.Add(family);
 			Context.SaveChanges();
-			return new Result<Models.Family> { Success = true, Payload = MapToModel(family) };
+			var famEnitity = Context.Families.Where(f => f.Id == family.Id).Include(e => e.Employee).FirstOrDefault();
+			return new Result<Models.Family> { Success = true, Payload = MapToModel(famEnitity) };
 		}
 
 		/// <summary>
@@ -41,11 +42,13 @@ namespace Salary_management.Controller.Infrastructure.Repositories
 			{
 				if (relativeType == null)
 				{
-					return Context.Families.Select(e => MapToModel(e)).ToList();
+					return Context.Families.Include(f => f.Employee).Select(e => MapToModel(e)).ToList();
 				}
 				else
 				{
-					return Context.Families.Where(f => f.RelativeType == relativeType).Select(e => MapToModel(e)).ToList();
+					return Context.Families.Where(f => f.RelativeType == relativeType)
+						.Include(f => f.Employee)
+						.Select(e => MapToModel(e)).ToList();
 				}
 
 			}
@@ -61,17 +64,17 @@ namespace Salary_management.Controller.Infrastructure.Repositories
 					query = query.Where(f => f.RelativeType == relativeType);
 				}
 
-				return query.Select(e => MapToModel(e)).ToList();
+				return query.Include(f => f.Employee).Select(e => MapToModel(e)).ToList();
 			}
 		}
 		public List<Models.Family> GetFamiliesByEmployee(string EmployeeId)
     {
-         return Context.Families.ToList().Select(f => MapToModel(f)).Where(e => e.EmployeeId == EmployeeId).ToList();
+         return Context.Families.Where(e => e.EmployeeId == EmployeeId).Include(f => f.Employee).Select(f => MapToModel(f)).ToList();
     }
    
     public Models.Family GetFamilyDetail(int id)
     {
-       return MapToModel(Context.Families.Where(e => e.Id == id).First()!);
+       return MapToModel(Context.Families.Where(e => e.Id == id).Include(f => f.Employee).First()!);
     }
 
     public Result<Models.Family> FixFamily(int FamilyId, InputFamily inputFamily)
@@ -81,7 +84,8 @@ namespace Salary_management.Controller.Infrastructure.Repositories
 			Context.Families.Update(Family);
 			Context.SaveChanges();
 
-			return new Result<Models.Family> { Success = true, Payload = MapToModel(Family) };
+			var famEnitity = Context.Families.Where(f => f.Id == Family.Id).Include(e => e.Employee).FirstOrDefault();
+			return new Result<Models.Family> { Success = true, Payload = MapToModel(famEnitity) };
 		}
 
 
@@ -112,6 +116,7 @@ namespace Salary_management.Controller.Infrastructure.Repositories
 			{
 				Id = family.Id,
 				EmployeeId = family.EmployeeId,
+				EmployeeName = family.Employee.Name,
 				Name = family.Name,
 				DateOfBirth = family.DateOfBirth,
 				Occupation = family.Occupation,

@@ -1,6 +1,6 @@
-﻿namespace Salary_management.View.Units
+﻿namespace Salary_management.View.Positions
 {
-    partial class FixUnitDetailForm
+    partial class FixEmployeeInPositionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.backBtn = new System.Windows.Forms.Button();
             this.endDatePanel = new System.Windows.Forms.Panel();
             this.endDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,25 +39,60 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.endDatePanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.endDatePanel);
             this.panel1.Controls.Add(this.workRecentlyCheckBox);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 404);
-            this.panel1.TabIndex = 19;
+            this.panel1.Size = new System.Drawing.Size(800, 450);
+            this.panel1.TabIndex = 20;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.saveBtn);
+            this.panel4.Controls.Add(this.backBtn);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 404);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.panel4.Size = new System.Drawing.Size(800, 46);
+            this.panel4.TabIndex = 19;
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.saveBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.saveBtn.ForeColor = System.Drawing.Color.Gainsboro;
+            this.saveBtn.Location = new System.Drawing.Point(702, 5);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(98, 41);
+            this.saveBtn.TabIndex = 1;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.ForeColor = System.Drawing.Color.Gainsboro;
+            this.backBtn.Location = new System.Drawing.Point(0, 5);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(94, 41);
+            this.backBtn.TabIndex = 0;
+            this.backBtn.Text = "< Back";
+            this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // endDatePanel
             // 
@@ -129,65 +167,28 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Start date: ";
             // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.backBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.backBtn.Location = new System.Drawing.Point(0, 5);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(94, 41);
-            this.backBtn.TabIndex = 0;
-            this.backBtn.Text = "< Back";
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // saveBtn
-            // 
-            this.saveBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.saveBtn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.saveBtn.ForeColor = System.Drawing.Color.Gainsboro;
-            this.saveBtn.Location = new System.Drawing.Point(702, 5);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(98, 41);
-            this.saveBtn.TabIndex = 1;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = false;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.saveBtn);
-            this.panel4.Controls.Add(this.backBtn);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 404);
-            this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel4.Size = new System.Drawing.Size(800, 46);
-            this.panel4.TabIndex = 18;
-            // 
-            // FixUnitDetailForm
+            // FixEmployeeInPositionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel4);
-            this.Name = "FixUnitDetailForm";
-            this.Text = "FixUnitDetailForm";
-            this.Load += new System.EventHandler(this.FixUnitDetailForm_Load);
+            this.Name = "FixEmployeeInPositionForm";
+            this.Text = "FixEmployeeInPositionForm";
+            this.Load += new System.EventHandler(this.FixEmployeeInPositionForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.endDatePanel.ResumeLayout(false);
             this.endDatePanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
         private Panel panel1;
         private Panel endDatePanel;
         private DateTimePicker endDateTimePicker;
@@ -196,8 +197,8 @@
         private Panel panel3;
         private DateTimePicker startDateTimePicker;
         private Label label2;
-        private Button backBtn;
-        private Button saveBtn;
         private Panel panel4;
+        private Button saveBtn;
+        private Button backBtn;
     }
 }

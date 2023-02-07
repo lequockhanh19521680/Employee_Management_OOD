@@ -165,6 +165,14 @@ namespace Salary_management.View.Employees.Detail
             fixUnion.BackColor = Color.FromArgb(26, 25, 62);
             fixUnion.ForeColor = Color.Gainsboro;
             //set family
+            if(employee.Gender == Gender.Male)
+            {
+                HusbanBtn.Visible = false;
+            }
+            else
+            {
+                WifeBtn.Visible = false;
+            }
             enableFamily(false);
             FixFamilyBtn.BackColor = Color.FromArgb(26, 25, 62);
             FixFamilyBtn.ForeColor = Color.Gainsboro;
@@ -221,7 +229,7 @@ namespace Salary_management.View.Employees.Detail
 
             //làm biểu đồ (chart)       
             formsPlot1.Plot.XLabel("Months");
-            formsPlot1.Plot.YLabel("Salary (vnd)");
+            formsPlot1.Plot.YLabel("Salary (triệu vnd)");
             formsPlot1.Plot.SetAxisLimitsX(1, 12);
             formsPlot1.Plot.SetAxisLimitsY(0, 30);
             double[] xPositions = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
@@ -251,20 +259,19 @@ namespace Salary_management.View.Employees.Detail
             this.SalaryGridView.Rows.Clear();
             RepositorySalary repoSalary = new RepositorySalary();
             List<Model.EmployeeSalary> list = repoSalary.GetEmployeeSalaryAtYear(idEmployee).Payload;
-            double[] dataX = new double[15];
-            double[] dataY = new double[15];
+            double[] dataX = new double[12];
+            double[] dataY = new double[12];
             int count = 0;
 
             foreach (Model.EmployeeSalary salary in list)
             {
+                long BHXH = salary.Salary / 20;
+                long BHYT = salary.Salary / 100;
+                long BHTN = salary.Salary / 100;
+                dataX[count] = count + 1;
+                dataY[count] = (salary.Salary - BHXH - BHYT - BHTN)/1000000;
+                SalaryGridView.Rows.Add(salary.Date, Math.Round(salary.EmployeeAllowanceCoefficient, 3), BHXH, BHYT, BHTN, (salary.Salary - BHXH - BHYT - BHTN));
                 count++;
-                long BHXH = salary.Salary;
-                long BHYT = salary.Salary;
-                long BHTN = salary.Salary;
-                dataX[count] = count;
-                dataY[count] = salary.Salary;
-                // dataY[count] = salary.Salary / 1000000;
-                SalaryGridView.Rows.Add(salary.Date, salary.EmployeeAllowanceCoefficient, BHXH, BHYT, BHTN, salary.Salary);
             }
             setChart(dataX, dataY);
 
@@ -558,6 +565,8 @@ namespace Salary_management.View.Employees.Detail
             {
                 var repo =new RepositoryEmployee();
                 repo.DeleteEmployee(idEmployee);
+                MessageBox.Show("Delete success");
+                mng.OpenChildForm(new ListEmployeeForm(this.mng));
             }
         }
         private void backBtn_Click(object sender, EventArgs e)
@@ -836,19 +845,19 @@ namespace Salary_management.View.Employees.Detail
             SalaryGridView.Rows.Clear();
             RepositorySalary repoSalary = new RepositorySalary();
             List<Model.EmployeeSalary> list = repoSalary.GetEmployeeSalaryAtYear(idEmployee, dateSalaryBox.Value.Year).Payload;
-            double[] dataX = new double[15];
-            double[] dataY = new double[15];
+            double[] dataX = new double[12];
+            double[] dataY = new double[12];
             int count = 0;
 
             foreach (Model.EmployeeSalary salary in list)
-            {
-                count++;
+            {              
                 long BHXH = salary.Salary / 20;
                 long BHYT = salary.Salary / 100;
                 long BHTN = salary.Salary / 100;
-                dataX[count] = count;
-                dataY[count] = salary.Salary;
-                SalaryGridView.Rows.Add(salary.Date, salary.EmployeeAllowanceCoefficient, BHXH, BHYT, BHTN, salary.Salary);               
+                dataX[count] = count+1;
+                dataY[count] = (salary.Salary - BHXH - BHYT - BHTN) / 1000000;
+                SalaryGridView.Rows.Add(salary.Date, Math.Round( salary.EmployeeAllowanceCoefficient,3), BHXH, BHYT, BHTN, (salary.Salary - BHXH - BHYT - BHTN));
+                count++;
             }
             setChart(dataX, dataY);
         }
@@ -871,7 +880,6 @@ namespace Salary_management.View.Employees.Detail
             deleteEmployeeBtn.BackColor = deleteEmployeeBtn.Enabled ? Color.FromArgb(26, 25, 62) : SystemColors.Control;
             deleteEmployeeBtn.ForeColor = deleteEmployeeBtn.Enabled ? Color.Gainsboro : Color.Black;
         }
-
         private void backUnionBtn_Click(object sender, EventArgs e)
         {
             mng.OpenChildForm(new ListEmployeeForm(this.mng));
